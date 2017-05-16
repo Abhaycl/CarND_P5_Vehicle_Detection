@@ -53,8 +53,8 @@ The summary of the files and folders int repo is provided in the table below:
 | :---------------- | :----------------------------------------------------------------------------------|
 | main.py           | Main python file that runs the program                                             |
 | defs.py           | Function library - includes all the helper functions and the main pipeline         |
-| test_video.mp4    | Video test                       |
-| project_video.mp4 | Video of the complete project                         |
+| test_video.mp4    | Video test                                                                         |
+| project_video.mp4 | Video of the complete project                                                      |
 |                   |                                                                                    |
 | test_images       | Folder with road images used to test the pipeline                                  |
 | output_images     | Folder to store all output images                                                  |
@@ -66,7 +66,7 @@ The summary of the files and folders int repo is provided in the table below:
 
 ---
 
-Most of the output images are in the file main.ipynb where the results of each of the processes are shown, as well as test samples that I have made by changing some parameters or with different test images
+Most of the output images are in the file main.ipynb where the results of each of the processes are shown, as well as test samples that I have made by changing some parameters or with different test images, the generated videos are in the output_videos folder
 
 
 Now let's review the steps one by one. 
