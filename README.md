@@ -44,9 +44,10 @@ The summary of the files and folders int repo is provided in the table below:
 
 Most of the output images are in the file main.ipynb where the results of each of the processes are shown, as well as test samples that I have made by changing some parameters or with different test images, the generated videos are in the output_videos folder. In the processes is commented its functionality
 
+
+#### Discussion
+
 ---
 
-# Discussion
 
----
-
+In cases that will fail the detection of the vehicles, a better and varied selection of test images could be used, changing some parameters to obtain better results in the detection of the vehicles
