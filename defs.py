@@ -1,8 +1,4 @@
-# General system level packages
-import sys #
-import os #
-import time #
-import glob #
+
 # For numerical and image processing
 import numpy as np
 import cv2
@@ -11,19 +7,12 @@ import matplotlib.pyplot as plt
 import matplotlib.image as mpimg
 # For image processing
 from skimage.feature import hog
-from scipy.ndimage.measurements import label #
-# For machine learning tasks such as standardization, splitting and linear SVM classification
-from sklearn.preprocessing import StandardScaler #
-from sklearn.model_selection import train_test_split #
-from sklearn.svm import LinearSVC #
 # For processing video files
 from moviepy.editor import VideoFileClip
 
 
 def draw_boxes(img, bboxes, color = (0, 0, 255), thick = 6):
     # Function to draw boxes on an image using cv2.rectangle()
-    # Inputs: image, list of bounding boxes, color tuple, line thickness
-    # Output: image with the bboxes drawn on it
     # draws boxes using cv2.rectangle() in that color on the output
     imcopy = np.copy(img)
     for box in bboxes:
@@ -32,9 +21,7 @@ def draw_boxes(img, bboxes, color = (0, 0, 255), thick = 6):
 
 
 def color_hist(img, nbins = 32):
-    # Computes the histogram of each color channel, concatenate them together and
-    # return the data as features for classifier
-    # Inputs: image and number of bins for the histogram
+    # Computes the histogram of each color channel, concatenate them together and return the data as features for classifier
     
     # Compute the histogram of the color channels separately
     channel1_hist = np.histogram(img[:,:,0], bins=nbins)
@@ -57,8 +44,6 @@ def color_hist(img, nbins = 32):
 
 def bin_spatial(img, size = (32, 32)):
     # Spatial binning of the image to do downsampling
-    # Inputs: image and desired size
-    # Output: Binned image features
     features = cv2.resize(img, size, interpolation = cv2.INTER_NEAREST).ravel()
     # Return the feature vector
     return features
@@ -232,19 +217,17 @@ def single_img_features(img, color_space = 'RGB', spatial_size = (32, 32), hist_
 
 def slide_window(img, x_start_stop = [None, None], y_start_stop = [None, None], xy_window = (64, 64), xy_overlap = (0.5, 0.5)):
     # Function that returns sliding window positions
-    # Inputs: image, x and y starting and stopping positions, window size and fraction of overlap
-    # Output: Window positions for the desired area of the image
     
     # If x and/or y start/stop positions not defined, set to image size
     if x_start_stop[0] == None:
         x_start_stop[0] = 0
     if x_start_stop[1] == None:
-        x_start_stop[1] = img.shape[1]
+        x_start_stop[1] = img.shape[1] #columns
     
     if y_start_stop[0] == None:
         y_start_stop[0] = 0
     if y_start_stop[1] == None:
-        y_start_stop[1] = img.shape[0]
+        y_start_stop[1] = img.shape[0] #rows
     
     # Compute the span of the region to be searched
     x_span = x_start_stop[1] - x_start_stop[0]
@@ -281,11 +264,8 @@ def search_windows(img, windows, clf, scaler,
                    color_space = 'RGB', spatial_size = (32, 32), hist_bins = 32,
                    orient = 9, pix_per_cell = 8, cell_per_block = 2, hog_channel = 0,
                    spatial_feat = True, hist_feat = True, hog_feat = True):
-    
     # Function that gets an image and list of windows (coordinates)
     # Loops through the windows by cropping the image and resizing them to (64, 64) - same size as training images
-    # Inputs: image, window list, classifier, normalization scaler, feature extraction parameters
-    # Output: list of windows with cars in them
     
     # List for positive detecion windows - there is a car
     on_windows = []
