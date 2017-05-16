@@ -64,6 +64,8 @@ The summary of the files and folders int repo is provided in the table below:
 |                   |                                                                                    |
 
 
+---
+
 Most of the output images are in the file main.ipynb where the results of each of the processes are shown, as well as test samples that I have made by changing some parameters or with different test images
 
 
