@@ -25,19 +25,17 @@ jupyter notebook main.ipynb
 
 The summary of the files and folders int repo is provided in the table below:
 
-| File/Folder       | Definition                                                                         |
-| :---------------- | :----------------------------------------------------------------------------------|
-| main.py           | Main python file that runs the program                                             |
-| defs.py           | Function library - includes all the helper functions and the main pipeline         |
-| test_video.mp4    | Video test                                                                         |
-| project_video.mp4 | Video of the complete project                                                      |
-|                   |                                                                                    |
-| test_images       | Folder with road images used to test the pipeline                                  |
-| output_images     | Folder to store all output images                                                  |
-| output_videos     | Folder to store output videos                                                      |
-| vehicles          | Folder with images of examples of vehicles                                         |
-| non-vehicles      | Folder with images of examples of non-vehicles                                     |
-|                   |                                                                                    |
+| File/Folder       | Definition                                                                                  |
+| :---------------- | :------------------------------------------------------------------------------------------ |
+| main.ipynb        | Main python file that runs the program with all the helper functions and the main pipeline  |
+| test_video.mp4    | Video test                                                                                  |
+| project_video.mp4 | Video of the complete project                                                               |
+|                   |                                                                                             |
+| test_images       | Folder with road images used to test the pipeline                                           |
+| output_videos     | Folder to store output videos                                                               |
+| vehicles          | Folder with images of examples of vehicles                                                  |
+| non-vehicles      | Folder with images of examples of non-vehicles                                              |
+|                   |                                                                                             |
 
 
 ---
