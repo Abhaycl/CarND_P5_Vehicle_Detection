@@ -27,7 +27,7 @@ The summary of the files and folders int repo is provided in the table below:
 
 | File/Folder       | Definition                                                                                  |
 | :---------------- | :------------------------------------------------------------------------------------------ |
-| main.ipynb        | Main python file that runs the program with all the helper functions and the main pipeline  |
+| P5.ipynb          | Main python file that runs the program with all the helper functions and the main process   |
 | test_video.mp4    | Video test                                                                                  |
 | project_video.mp4 | Video of the complete project                                                               |
 |                   |                                                                                             |
