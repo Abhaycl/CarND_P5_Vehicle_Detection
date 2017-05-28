@@ -10,6 +10,8 @@ In this project, goal is to write a software pipeline to detect vehicles in a te
 
 ```sh
 jupyter notebook main.ipynb
+
+Once the project has been opened in the cell menu, choose Run All
 ```
 
 **The process we will fallow can be summarized as:**
@@ -28,6 +30,9 @@ The summary of the files and folders int repo is provided in the table below:
 | File/Folder       | Definition                                                                                  |
 | :---------------- | :------------------------------------------------------------------------------------------ |
 | P5.ipynb          | Main python file that runs the program with all the helper functions and the main process   |
+| calibrations.p    | File containing the calibration parameters for the detection of the lines obtained in the   |
+|                   | practice 4 of the course                                                                    |
+| Lines.py          | Funcion                                                                                     |
 | test_video.mp4    | Video test                                                                                  |
 | project_video.mp4 | Video of the complete project                                                               |
 |                   |                                                                                             |
