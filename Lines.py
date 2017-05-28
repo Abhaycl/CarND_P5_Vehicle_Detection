@@ -1,7 +1,6 @@
 import cv2
 import numpy as np
 
-
 class Line():
     def __init__(self, window_width, window_height, margin, ym = 1, xm = 1, smooth_factor = 20):
         # list that stores all the past (left, right) center set values used for smoothing the output
@@ -29,7 +28,7 @@ class Line():
     
 	
     def find_window_centroids(self, warped):
-	    """The main tracking function for finding and storing lane segment positions"""
+        """The main tracking function for finding and storing lane segment positions"""
         width = self.__window_width
         height = self.__window_height
         margin = self.__margin
