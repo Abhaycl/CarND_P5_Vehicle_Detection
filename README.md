@@ -29,23 +29,25 @@ The summary of the files and folders int repo is provided in the table below:
 
 | File/Folder       | Definition                                                                                  |
 | :---------------- | :------------------------------------------------------------------------------------------ |
-| P5.ipynb          | Main python file that runs the program with all the helper functions and the main process   |
+| P5.ipynb          | Main python file that runs the program with all the helper functions and the main process.  |
 | calibrations.p    | File containing the calibration parameters for the detection of the lines obtained in the   |
-|                   | practice 4 of the course                                                                    |
-| Lines.py          | Funcion                                                                                     |
-| test_video.mp4    | Video test                                                                                  |
-| project_video.mp4 | Video of the complete project                                                               |
+|                   | practice 4 of the course.                                                                   |
+| Lines.py          | File that includes the class to store tracking information and the windows search function. |
+| test_video.mp4    | Video test.                                                                                 |
+| project_video.mp4 | Video of the complete project.                                                              |
 |                   |                                                                                             |
-| test_images       | Folder with road images used to test the pipeline                                           |
-| output_videos     | Folder to store output videos                                                               |
-| vehicles          | Folder with images of examples of vehicles                                                  |
-| non-vehicles      | Folder with images of examples of non-vehicles                                              |
+| test_images       | Folder with road images used to test the pipeline.                                          |
+| output_videos     | Folder to store output videos.                                                              |
+| vehicles          | Folder with images of examples of vehicles.                                                 |
+| non-vehicles      | Folder with images of examples of non-vehicles.                                             |
 |                   |                                                                                             |
 
 
 ---
 
-Most of the output images are in the file main.ipynb where the results of each of the processes are shown, as well as test samples that I have made by changing some parameters or with different test images, the generated videos are in the output_videos folder. In the processes is commented its functionality
+Most of the output images are in the P5.ipynb file where the results of each of the processes are displayed, the generated videos are in the output_videos folder. In the lines of code it's commented some of the functionalities, also includes the processing and the video of the challenge in the detection of the lines and the vehicles at the same time.
+
+Note: Due to space problems for vehicle and non-vehicle folders, it is only necessary to include the images with which I train the classifier, which correspond to the training dataset provided for this project (vehicle and non-vehicle images) are in the .png format.
 
 
 #### Discussion
