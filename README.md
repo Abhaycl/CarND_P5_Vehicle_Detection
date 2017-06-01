@@ -55,4 +55,4 @@ Note: Due to space problems for vehicle and non-vehicle folders, it is only nece
 ---
 
 
-In cases that will fail the detection of the vehicles, a better and varied selection of test images could be used, changing some parameters to obtain better results in the detection of the vehicles
+In cases that will fail the detection of the vehicles, a better and varied selection of test images could be used, changing some parameters to obtain better results in the detection of the vehicles, possible improvement would be to use different scales for different areas
