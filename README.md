@@ -6,7 +6,7 @@ In this project, goal is to write a software pipeline to detect vehicles in a te
 
 [//]: # (Image References)
 
-[image1]: /output_images/vehicle_nonvehicle_img "Sample vehicle and non-vehicle image"
+[image1]: /output_images/vehicle_nonvehicle_img.jpg "Sample vehicle and non-vehicle image"
 [image2]: /output_images/calibration3_compare.png "Sample undistorted calibration image"
 [image3]: /output_images/undistorted/test5_compare.png "Sample undistorted test image"
 [image4]: /output_images/thresholding/test3_compare.png "Test Image after thresholds"
