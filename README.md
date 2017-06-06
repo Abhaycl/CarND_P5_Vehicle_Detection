@@ -10,7 +10,7 @@ In this project, goal is to write a software pipeline to detect vehicles in a te
 [image2]: /output_images/hog_img.jpg "Sample hog image"
 [image3]: /output_images/spatial-binned_img.jpg "Sample spatial binned image"
 [image4]: /output_images/color-histogram_img.jpg "Sample color histogram image"
-[image5]: /output_images/features.jpg "Sample features image"
+[image5]: /output_images/features_img.jpg "Sample features image"
 [image6]: /output_images/straight/straight_lines1_compare.png "Warped straight image after perspective transform" 
 [image7]: /output_images/warped/test3_compare.png "Warped test image after perspective transform" 
 [image8]: /output_images/windows/test5_compare.png "Windows around centroids on warped image"
