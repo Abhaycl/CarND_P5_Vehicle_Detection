@@ -118,15 +118,17 @@ nonvehicle_color_hist = color_hist(nonvehicle_image, hist_bins)
 ![Color histogram image][image4]
 
 ```python
-vehicles_features = extract_features(test_vehicles, cspace = cspace, spatial_size = spatial_size, hist_bins = hist_bins,
-                                     orient = orient, pix_per_cell = pix_per_cell, cell_per_block = cell_per_block,
-                                     hog_channel = hog_channel, spatial_feat = spatial_feat, hist_feat = hist_feat,
+vehicles_features = extract_features(test_vehicles, cspace = cspace, spatial_size = spatial_size,
+                                     hist_bins = hist_bins, orient = orient, pix_per_cell = pix_per_cell,
+                                     cell_per_block = cell_per_block, hog_channel = hog_channel,
+                                     spatial_feat = spatial_feat, hist_feat = hist_feat,
                                      hog_feat = hog_feat)
 
 nonvehicles_features = extract_features(test_nonvehicles, cspace = cspace, spatial_size = spatial_size,
                                         hist_bins = hist_bins, orient = orient, pix_per_cell = pix_per_cell,
                                         cell_per_block = cell_per_block, hog_channel = hog_channel,
-                                        spatial_feat = spatial_feat, hist_feat = hist_feat, hog_feat = hog_feat)
+                                        spatial_feat = spatial_feat, hist_feat = hist_feat,
+                                        hog_feat = hog_feat)
 
 print(round(time.time() - t, 2), 'Seconds to compute the features.\\n')
 x = np.vstack((vehicles_features, nonvehicles_features)).astype(np.float64)
