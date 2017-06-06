@@ -103,8 +103,41 @@ hist_feat = True
 hog_feat = True
 ```
 
+```python
+vehicle_binning = bin_spatial(vehicle_image, spatial_size)
+nonvehicle_binning = bin_spatial(nonvehicle_image, spatial_size)
+```
+
 ![Spatial binned image][image3]
+
+```python
+vehicle_color_hist = color_hist(vehicle_image, hist_bins)
+nonvehicle_color_hist = color_hist(nonvehicle_image, hist_bins)
+```
+
 ![Color histogram image][image4]
+
+```python
+vehicles_features = extract_features(test_vehicles, cspace = cspace, spatial_size = spatial_size, hist_bins = hist_bins,
+                                     orient = orient, pix_per_cell = pix_per_cell, cell_per_block = cell_per_block,
+                                     hog_channel = hog_channel, spatial_feat = spatial_feat, hist_feat = hist_feat,
+                                     hog_feat = hog_feat)
+
+nonvehicles_features = extract_features(test_nonvehicles, cspace = cspace, spatial_size = spatial_size,
+                                        hist_bins = hist_bins, orient = orient, pix_per_cell = pix_per_cell,
+                                        cell_per_block = cell_per_block, hog_channel = hog_channel,
+                                        spatial_feat = spatial_feat, hist_feat = hist_feat, hog_feat = hog_feat)
+
+print(round(time.time() - t, 2), 'Seconds to compute the features.\\n')
+x = np.vstack((vehicles_features, nonvehicles_features)).astype(np.float64)
+# Fit a per-column scaler
+x_scaler = StandardScaler().fit(x)
+# Apply a per-column scaler
+scaled_x = x_scaler.transform(x)
+# Define the labels vector
+y = np.hstack((np.ones(len(vehicles_features)), np.zeros(len(nonvehicles_features))))
+```
+
 ![Features image][image5]
 
 Most of the output images are in the P5.ipynb file where the results of each of the processes are displayed, the generated videos are in the output_videos folder. In the lines of code it's commented some of the functionalities, also includes the processing and the video of the challenge in the detection of the lines and the vehicles at the same time.
