@@ -8,8 +8,8 @@ In this project, goal is to write a software pipeline to detect vehicles in a te
 
 [image1]: /output_images/vehicle_nonvehicle_img.jpg "Sample vehicle and non-vehicle image"
 [image2]: /output_images/hog_img.jpg "Sample hog image"
-[image3]: /output_images/undistorted/test5_compare.png "Sample undistorted test image"
-[image4]: /output_images/thresholding/test3_compare.png "Test Image after thresholds"
+[image3]: /output_images/spatial-binned.jpg "Sample spatial binned image"
+[image4]: /output_images/color-histogram_img.png "Sample color histogram image"
 [image5]: /output_images/straight/straight_lines1_points.png "Source points for perspective transform"
 [image6]: /output_images/straight/straight_lines1_compare.png "Warped straight image after perspective transform" 
 [image7]: /output_images/warped/test3_compare.png "Warped test image after perspective transform" 
@@ -84,11 +84,12 @@ I then explored different color spaces and different skimage.hog() parameters (o
 
 Here is an example using the YCrCb color space and HOG parameters of orientations=9, pixels_per_cell = (8, 8) and cells_per_block = (2, 2):
 
-![vehicle and non-vehicle image][image2]
+![Hog image][image2]
 
-I tried various combinations of parameters and...
+I tried several combinations of parameters and the parameters that I chose were the ones that gave me the best results with the images
 
-
+![Spatial binned image][image3]
+![Color histogram image][image4]
 
 Most of the output images are in the P5.ipynb file where the results of each of the processes are displayed, the generated videos are in the output_videos folder. In the lines of code it's commented some of the functionalities, also includes the processing and the video of the challenge in the detection of the lines and the vehicles at the same time.
 
