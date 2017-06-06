@@ -8,9 +8,9 @@ In this project, goal is to write a software pipeline to detect vehicles in a te
 
 [image1]: /output_images/vehicle_nonvehicle_img.jpg "Sample vehicle and non-vehicle image"
 [image2]: /output_images/hog_img.jpg "Sample hog image"
-[image3]: /output_images/spatial-binned.jpg "Sample spatial binned image"
-[image4]: /output_images/color-histogram_img.png "Sample color histogram image"
-[image5]: /output_images/straight/straight_lines1_points.png "Source points for perspective transform"
+[image3]: /output_images/spatial-binned_img.jpg "Sample spatial binned image"
+[image4]: /output_images/color-histogram_img.jpg "Sample color histogram image"
+[image5]: /output_images/features.jpg "Sample features image"
 [image6]: /output_images/straight/straight_lines1_compare.png "Warped straight image after perspective transform" 
 [image7]: /output_images/warped/test3_compare.png "Warped test image after perspective transform" 
 [image8]: /output_images/windows/test5_compare.png "Windows around centroids on warped image"
@@ -82,14 +82,30 @@ I started by reading in all the vehicle and non-vehicle images. Here is an examp
 
 I then explored different color spaces and different skimage.hog() parameters (orientations, pixels_per_cell, and cells_per_block). I grabbed random images from each of the two classes and displayed them to get a feel for what the skimage.hog() output looks like.
 
-Here is an example using the YCrCb color space and HOG parameters of orientations=9, pixels_per_cell = (8, 8) and cells_per_block = (2, 2):
+Here is an example using the YCrCb color space and HOG parameters of orientations = 9, pixels_per_cell = (8, 8) and cells_per_block = (2, 2):
 
 ![Hog image][image2]
 
 I tried several combinations of parameters and the parameters that I chose were the ones that gave me the best results with the images
 
+I have trained a linear SVM using the following parameters HOG, spatial binned and color characteristics
+
+```python
+orient = 9
+pix_per_cell = 8
+cell_per_block = 2
+cspace = 'YCrCb'
+hog_channel = ALL
+spatial_size = (64, 64)
+hist_bins = 64
+spatial_feat = True
+hist_feat = True
+hog_feat = True
+```
+
 ![Spatial binned image][image3]
 ![Color histogram image][image4]
+![Features image][image5]
 
 Most of the output images are in the P5.ipynb file where the results of each of the processes are displayed, the generated videos are in the output_videos folder. In the lines of code it's commented some of the functionalities, also includes the processing and the video of the challenge in the detection of the lines and the vehicles at the same time.
 
