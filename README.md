@@ -7,7 +7,7 @@ In this project, goal is to write a software pipeline to detect vehicles in a te
 [//]: # (Image References)
 
 [image1]: /output_images/vehicle_nonvehicle_img.jpg "Sample vehicle and non-vehicle image"
-[image2]: /output_images/calibration3_compare.png "Sample undistorted calibration image"
+[image2]: /output_images/hog_img.jpg "Sample hog image"
 [image3]: /output_images/undistorted/test5_compare.png "Sample undistorted test image"
 [image4]: /output_images/thresholding/test3_compare.png "Test Image after thresholds"
 [image5]: /output_images/straight/straight_lines1_points.png "Source points for perspective transform"
@@ -79,6 +79,14 @@ def get_hog_features(img, orient, pix_per_cell, cell_per_block, vis = False, fea
 I started by reading in all the vehicle and non-vehicle images. Here is an example of one of each of the vehicle and non-vehicle classes:
 
 ![vehicle and non-vehicle image][image1]
+
+I then explored different color spaces and different skimage.hog() parameters (orientations, pixels_per_cell, and cells_per_block). I grabbed random images from each of the two classes and displayed them to get a feel for what the skimage.hog() output looks like.
+
+Here is an example using the YCrCb color space and HOG parameters of orientations=9, pixels_per_cell = (8, 8) and cells_per_block = (2, 2):
+
+![vehicle and non-vehicle image][image2]
+
+I tried various combinations of parameters and...
 
 
 
