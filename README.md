@@ -14,8 +14,6 @@ In this project, goal is to write a software pipeline to detect vehicles in a te
 [image6]: /output_images/windowsX-X_img.jpg "Sample slidingWarped straight image after perspective transform" 
 [image7]: /output_images/heat_areas_img.jpg "Sample heat areas image" 
 [image8]: /output_images/heatmap_img.jpg "Sample remove false positives image"
-[image9]: /output_images/lanelines/test2_compare.png "Image with detected lane lines"
-[image10]: /output_images/full/test4_compare.png "Final image with lane lines, car offset and road curvature"
 
 #### How to run the program
 
@@ -58,9 +56,9 @@ The summary of the files and folders int repo is provided in the table below:
 
 
 ---
-###Histogram of Oriented Gradients (HOG)
+#### Histogram of Oriented Gradients (HOG)
 
-The code for this step is contained in the second and fourth code cells of the IPython notebook
+The code for this step is contained in the second and fourth code cells of the IPython notebook.
 
 ```python
 def get_hog_features(img, orient, pix_per_cell, cell_per_block, vis = False, feature_vec = True):
@@ -86,9 +84,9 @@ Here is an example using the YCrCb color space and HOG parameters of orientation
 
 ![Hog image][image2]
 
-I tried several combinations of parameters and the parameters that I chose were the ones that gave me the best results with the images
+I tried several combinations of parameters and the parameters that I chose were the ones that gave me the best results with the images.
 
-I have trained a linear SVM using the following parameters HOG, spatial binned and color characteristics, with a sampling of 2000 random images
+I have trained a linear SVM using the following parameters HOG, spatial binned and color characteristics, with a sampling of 2000 random images.
 
 ```python
 orient = 9
@@ -143,7 +141,7 @@ y = np.hstack((np.ones(len(vehicles_features)), np.zeros(len(nonvehicles_feature
 
 ![Features image][image5]
 
-###Sliding Window Search
+#### Sliding Window Search
 
 I decided to look for the positions in each image in a frame from 400px to 672px, there are four sizes of windows 40px, 64px, 80px and 128px that will identify the vehicles, a frame with a certain size is chosen to search vehicles where it is More likely to appear.
 
@@ -173,15 +171,20 @@ windows = windows0 + windows1 + windows2 + windows3
 
 ![Sliding window search][image6]
 
-Following is a good example of the search of the vehicles, there is a good result in the overlap and scale of each box, applying the characteristics HOG, with a color channel YCrCb previously described
+Following is a good example of the search of the vehicles, there is a good result in the overlap and scale of each box, applying the characteristics HOG, with a color channel YCrCb previously described.
 
-I recorded the positions of positive detections in each frame of the video. From the positive detections I created a heatmap and then thresholded that map to identify vehicle positions. I then used scipy.ndimage.measurements.label() to identify individual blobs in the heatmap. I then assumed each blob corresponded to a vehicle. I constructed bounding boxes to cover the area of each blob detected, the bounding boxes then overlaid
+I recorded the positions of positive detections in each frame of the video. From the positive detections I created a heatmap and then thresholded that map to identify vehicle positions. I then used scipy.ndimage.measurements.label() to identify individual blobs in the heatmap. I then assumed each blob corresponded to a vehicle. I constructed bounding boxes to cover the area of each blob detected, the bounding boxes then overlaid.
 
-###Here are six frames and their corresponding heatmaps:
+#### Here are six frames and their corresponding heatmaps:
 
 ![Heat areas][image7]
 
-In this part and on the map of the previous heat we remove the false positives
+In this part and on the heat maps previous, we can see how false positives are removed. It can be seen that for the threshold we use a value of 1 and normalize the values.
+
+```python
+heat = apply_threshold(heatmap, 1)
+heatmap = np.clip(heat, 0, 255)
+```
 
 ![Remove false positives][image8]
 
@@ -190,5 +193,4 @@ In this part and on the map of the previous heat we remove the false positives
 
 ---
 
-
-In cases that will fail the detection of the vehicles, a better and varied selection of test images could be used, changing some parameters to obtain better results in the detection of the vehicles, possible improvement would be to use different scales for different areas
+In cases that will fail the detection of the vehicles, a better and varied selection of test images could be used, changing some parameters to obtain better results in the detection of the vehicles, possible improvement would be to use different scales for different areas, apply a better threshold for remove false positives.
