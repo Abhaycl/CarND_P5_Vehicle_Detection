@@ -12,8 +12,8 @@ In this project, goal is to write a software pipeline to detect vehicles in a te
 [image4]: /output_images/color-histogram_img.jpg "Sample color histogram image"
 [image5]: /output_images/features_img.jpg "Sample features image"
 [image6]: /output_images/windowsX-X_img.jpg "Sample slidingWarped straight image after perspective transform" 
-[image7]: /output_images/warped/test3_compare.png "Warped test image after perspective transform" 
-[image8]: /output_images/windows/test5_compare.png "Windows around centroids on warped image"
+[image7]: /output_images/heat_areas_img.jpg "Sample heat areas image" 
+[image8]: /output_images/heatmap_img.jpg "Sample remove false positives image"
 [image9]: /output_images/lanelines/test2_compare.png "Image with detected lane lines"
 [image10]: /output_images/full/test4_compare.png "Final image with lane lines, car offset and road curvature"
 
@@ -173,9 +173,17 @@ windows = windows0 + windows1 + windows2 + windows3
 
 ![Sliding window search][image6]
 
-Most of the output images are in the P5.ipynb file where the results of each of the processes are displayed, the generated videos are in the output_videos folder. In the lines of code it's commented some of the functionalities, also includes the processing and the video of the challenge in the detection of the lines and the vehicles at the same time.
+Following is a good example of the search of the vehicles, there is a good result in the overlap and scale of each box, applying the characteristics HOG, with a color channel YCrCb previously described
 
-Note: Due to space problems for vehicle and non-vehicle folders, it is only necessary to include the images with which I train the classifier, which correspond to the training dataset provided for this project (vehicle and non-vehicle images) are in the .png format.
+I recorded the positions of positive detections in each frame of the video. From the positive detections I created a heatmap and then thresholded that map to identify vehicle positions. I then used scipy.ndimage.measurements.label() to identify individual blobs in the heatmap. I then assumed each blob corresponded to a vehicle. I constructed bounding boxes to cover the area of each blob detected, the bounding boxes then overlaid
+
+###Here are six frames and their corresponding heatmaps:
+
+![Heat areas][image7]
+
+In this part and on the map of the previous heat we remove the false positives
+
+![Remove false positives][image8]
 
 
 #### Discussion
