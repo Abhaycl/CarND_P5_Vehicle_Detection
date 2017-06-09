@@ -11,7 +11,7 @@ In this project, goal is to write a software pipeline to detect vehicles in a te
 [image3]: /output_images/spatial-binned_img.jpg "Sample spatial binned image"
 [image4]: /output_images/color-histogram_img.jpg "Sample color histogram image"
 [image5]: /output_images/features_img.jpg "Sample features image"
-[image6]: /output_images/straight/straight_lines1_compare.png "Warped straight image after perspective transform" 
+[image6]: /output_images/windowsX-X.jpg "Sample slidingWarped straight image after perspective transform" 
 [image7]: /output_images/warped/test3_compare.png "Warped test image after perspective transform" 
 [image8]: /output_images/windows/test5_compare.png "Windows around centroids on warped image"
 [image9]: /output_images/lanelines/test2_compare.png "Image with detected lane lines"
@@ -88,7 +88,7 @@ Here is an example using the YCrCb color space and HOG parameters of orientation
 
 I tried several combinations of parameters and the parameters that I chose were the ones that gave me the best results with the images
 
-I have trained a linear SVM using the following parameters HOG, spatial binned and color characteristics
+I have trained a linear SVM using the following parameters HOG, spatial binned and color characteristics, with a sampling of 2000 random images
 
 ```python
 orient = 9
@@ -101,6 +101,7 @@ hist_bins = 64
 spatial_feat = True
 hist_feat = True
 hog_feat = True
+n_samples = 2000
 ```
 
 ```python
@@ -141,6 +142,36 @@ y = np.hstack((np.ones(len(vehicles_features)), np.zeros(len(nonvehicles_feature
 ```
 
 ![Features image][image5]
+
+###Sliding Window Search
+
+I decided to look for the positions in each image in a frame from 400px to 672px, there are four sizes of windows 40px, 64px, 80px and 128px that will identify the vehicles, a frame with a certain size is chosen to search vehicles where it is More likely to appear.
+
+An overlap of 0.5 is chosen for the displacement of 0.5 towards the sides and up and down with a scale of 1.5.
+
+```python
+y_start_stop = [400, 672]
+scale = 1.5
+overlap = 0.5
+```
+
+```python
+windows0 = slide_window(img, x_start_stop = x_start_stop, y_start_stop = y_start_stop,
+                        xy_window = (40, 40), xy_overlap = (overlap, overlap))
+
+windows1 = slide_window(img, x_start_stop = x_start_stop, y_start_stop = y_start_stop,
+                        xy_window = (64, 64), xy_overlap = (overlap, overlap))
+
+windows2 = slide_window(img, x_start_stop = x_start_stop, y_start_stop = y_start_stop,
+                        xy_window = (80, 80), xy_overlap = (overlap, overlap))
+
+windows3 = slide_window(img, x_start_stop = x_start_stop, y_start_stop = y_start_stop,
+                        xy_window = (128, 128), xy_overlap = (overlap, overlap))
+
+windows = windows0 + windows1 + windows2 + windows3
+```
+
+![Sliding window search][image6]
 
 Most of the output images are in the P5.ipynb file where the results of each of the processes are displayed, the generated videos are in the output_videos folder. In the lines of code it's commented some of the functionalities, also includes the processing and the video of the challenge in the detection of the lines and the vehicles at the same time.
 
